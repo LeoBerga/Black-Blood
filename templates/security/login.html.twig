@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+{% endblock %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <section id="formulaire">
+        <div class="contenu">
+            <div id="popup1">
+                <img id="logo" src="{{ asset('assets/css/images/logo.png') }}" alt="logo">
+                <p>ConnexioN :</p>
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+
+                    <label for="inputEmail" class="sr-only">Email</label>
+                    <input type="email" value="{{ last_username }}" name="email" placeholder="EmaiL" style="margin-bottom: 10px" required   >
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" name="password" placeholder="Mot de passE" required>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <div id="valider">
+                        <button>Se connecteR</button>
+                        <a  href="{{ path('app_forgotten_password') }}" id="mdpoublie">Mot de passe oubliE</a>
+                    </div>
+                    <a href="{{ path('app_register') }}" style="position: relative;bottom: 55px">Pas encore inscriT ?</a>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

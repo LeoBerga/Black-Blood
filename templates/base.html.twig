@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/profil.css') }}">
+        {% endblock %}
+
+        {% block headjs %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+    <nav id="navbar">
+        <ul>
+            <li id="main"><a href="{{ path('app_accueil') }}"><img id="logoBB" src="{{ asset('assets/css/images/logo.png') }}" alt=""></a></li>
+            <li><a href="{{ path('page_joueur') }}"><button type="button">Jouer a black blooD</button></a></li>
+            <li><img class="etoile" src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt=""></li>
+            <li class="item"><a href="accueil#histoire">Histoire du jeU</a></li>
+            <li><img class="etoile" src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt=""></li>
+            <li class="item"><a href="accueil#regles">Regles du jeU</a></li>
+            <li><img class="etoile" src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt=""></li>
+            <li class="item"><a href="http://149.91.88.16/promo/" target="_blank">AcheteR</a></li>
+            <li><img class="etoile" src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt=""></li>
+            <li class="item"><a href="{{ path('app_back') }}">GestioN</a></li>
+            <li><img class="etoile" src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt=""></li>
+            <li id="connexion"><a href="{{ path('page_joueur') }}"><img id="connexionBis" src="{{ asset('assets/css/images/connexion.png') }}" alt=""></a></li>
+            <li id="agence"><a href="#"><img id="agenceBis" src="{{ asset('assets/css/images/logoAgence.png') }}" alt=""></a></li>
+        </ul>
+    </nav>
+
+        {% block body %}{% endblock %}
+
+    <footer>
+        <section class="footer">
+            <div class="footer1">
+                <h1>Suivez-nous !</h1>
+                <br>
+                <a class="icon" href="https://www.facebook.com/BlackBloodUF/">f</a>
+                <a class="icon" href="https://www.instagram.com/uf_agency/?hl=fr">l</a>
+            </div>
+            <div class="footer2">
+                <h1>Informations</h1>
+
+                <a href="#">
+                    <p>Mentions legales</p>
+                </a>
+            </div>
+            <div class="footer3">
+                <h1>Nos engagements</h1>
+                <p>Paiement sécurisé</p>
+                <p>Contact 7j/7</p>
+                <p>Meilleurs prix garantis</p>
+
+            </div>
+            <div class="footer4">
+                <h1>Site du groupe</h1>
+                <a href="http://149.91.88.16">
+                    <p>UF Agency </p>
+                </a>
+            </div>
+        </section>
+    </footer>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

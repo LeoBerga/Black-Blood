@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="formulaire">
+        <div class="contenu">
+            <div id="popup1">
+                <img id="logo" src="{{ asset('assets/css/images/logo.png') }}" alt="logo">
+                <p>Nouvelle partiE :</p>
+                <form action="{{ path('create_game') }}" method="POST">
+                    <div style="display: flex;flex-direction: column;align-items: center;justify-content: center">
+                        <h1>Choisissez votre adversaire</h1>
+                        <select name="adversaire" id="adversaire"style="background-color: black;border-radius: 30px;font-size: 2vw;color: #757575; border: none; padding: 5px;">
+                            <option value="">Choisir</option>
+                            {% for adversaire in adversaires if adversaire.id != joueur.id %}
+                                <option value="{{ adversaire.id }}">{{ adversaire.pseudo }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div id="valider">
+                        <button type="submit">Creer partiE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

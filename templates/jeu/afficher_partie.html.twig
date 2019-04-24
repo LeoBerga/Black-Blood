@@ -1,0 +1,294 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/stylejeu.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block body %}
+    <div class="message">
+        <div class="trait" id="trait1"></div>
+        <div class="message-inside">
+            <img src="{{ asset('assets/css/images/revolver_1.png') }}" alt="" id="revolver1">
+            <img src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt="" id="etoile">
+            <p id="message-text">Ne laissez aucune chance au village adversE</p>
+            <img src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt="" id="etoile">
+            <img src="{{ asset('assets/css/images/revolver_2.png') }}" alt="" id="revolver2">
+        </div>
+        <div class="trait" id="trait2"></div>
+    </div>
+<div class="jeu_plateau">
+    <img class="rondin1" src="{{ asset('assets/css/images/rondin1.png') }}">
+    <div class="principal">
+        <div class="gauche">
+            <img class="logo" src="{{ asset('assets/css/images/logo_plateau.png') }}">
+            <button class="ranger" id="fintour">Ranger les armes</button>
+            <div class="camps">
+                <img src="{{ asset('assets/css/images/creek-gulch.png') }}" class="creek_gulch">
+                <img src="{{ asset('assets/css/images/bush-lake.png') }}" class="bush_lake">
+            </div>
+            <button class="tirer" id="lancer">Tirer</button>
+            <div class="des">
+                <span id="de1" data-couleur="1"></span>
+                <span id="de2" data-couleur="2"></span>
+                <span id="de3" data-couleur="3"></span>
+            </div>
+            <button  class="quitter" style="border: none;"><a href="{{ path('page_joueur') }}" style="color: #b8b8b8">Quitter la partie</a></button>
+        </div>
+        <div class="droite">
+            <div class="infos">
+                <div class="player player_1">
+                    <div>
+                        <h2>{{ partie.joueur1.pseudo }}</h2>
+                    </div>
+                </div>
+                <div class="score">
+                    <span class="material-icons">star</span>
+                    <span class="material-icons">star</span>
+                    <span class="material-icons">star</span>
+                </div>
+                <div class="player player_2">
+                    <div>
+                        <h2>{{ partie.joueur2.pseudo }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="jeu" id="partie">
+                {{ include('jeu/plateau.html.twig') }}
+            </div>
+        </div>
+    </div>
+    <img class="rondin2" src="{{ asset('assets/css/images/rondin2.png') }}">
+    <div style="width: 100%;background: #393651;height: 250px;"></div>
+</div>
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var tourTampon = 0;
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{ path('which_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    tourTampon = response.tour;
+                    if (response.montour === false) {
+                        $('.des').hide();
+                    }
+                }
+            });
+        });
+
+        var moveTampon = 0;
+        $(document).ready(function () {
+            $.ajax({
+                url: "{{ path('which_move', {partie:partie.id}) }}",
+                method: 'POST',
+                data: {},
+                success: function (response) {
+                    moveTampon = response;
+                }
+            })
+        });
+
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max)+1);
+        }
+        var valeur = 0;
+        var de;
+        var aumoinsunde = false;
+        $(document).on('click', '#lancer', function(){
+            $('.deplacement').hide();
+            var de1 = getRandomInt(3);
+            var de2 = getRandomInt(3);
+            var de3 = getRandomInt(3);
+
+            if (de1 === 1) {
+                $('#de1').empty().html('<img src="{{ asset('assets/css/images/des/1w.gif') }}" id="dew" data-valeur="'+de1+'">');
+
+            } else if (de1 === 2) {
+                $('#de1').empty().html('<img src="{{ asset('assets/css/images/des/2w.gif') }}" id="dew" data-valeur="'+de1+'">');
+            } else if (de1 === 3) {
+                $('#de1').empty().html('<img src="{{ asset('assets/css/images/des/3w.gif') }}" id="dew" data-valeur="'+de1+'">');
+            }
+
+            if (de2 === 1) {
+                $('#de2').empty().html('<img src="{{ asset('assets/css/images/des/1r.gif') }}" id="der" data-valeur="'+de2+'">');
+
+            } else if (de2 === 2) {
+                $('#de2').empty().html('<img src="{{ asset('assets/css/images/des/2r.gif') }}" id="der" data-valeur="'+de2+'">');
+            } else if (de2 === 3) {
+                $('#de2').empty().html('<img src="{{ asset('assets/css/images/des/3r.gif') }}" id="der" data-valeur="'+de2+'">');
+            }
+
+            if (de3 === 1) {
+                $('#de3').empty().html('<img src="{{ asset('assets/css/images/des/1b.gif') }}" id="deb" data-valeur="'+de3+'">');
+
+            } else if (de3 === 2) {
+                $('#de3').empty().html('<img src="{{ asset('assets/css/images/des/2b.gif') }}" id="deb" data-valeur="'+de3+'">');
+            } else if (de3 === 3) {
+                $('#de3').empty().html('<img src="{{ asset('assets/css/images/des/3b.gif') }}" id="deb" data-valeur="'+de3+'">');
+            }
+
+            $(this).attr("disabled", "disabled").addClass('btn-defaut').removeClass('btn-primary');
+        });
+        $(document).on('click', '#de1', function(){
+            $('.deplacement').hide();
+            $('.deplacement.couteau').show();
+            $('.deplacement.shogun').show();
+            valeur = $('#dew').data('valeur');
+            de = $('#dew');
+        });
+        $(document).on('click', '#de2', function(){
+            $('.deplacement').hide();
+            $('.deplacement.dynamite').show();
+            $('.deplacement.shogun').show();
+            valeur = $('#der').data('valeur');
+            de = $('#der');
+        });
+        $(document).on('click', '#de3', function(){
+            $('.deplacement').hide();
+            $('.deplacement.revolver').show();
+            $('.deplacement.shogun').show();
+            valeur = $('#deb').data('valeur');
+            de = $('#deb');
+        });
+
+        $(document).on('click', '.deplacement', function(){
+            console.log('deplacement');
+            if ($(this).data('nb-cartes') - $(this).data('position') > 2) {
+            } else {
+                $.ajax({
+                    url: "{{ path('deplacement_game', {partie:partie.id}) }}",
+                    method: 'GET',
+                    data: {
+                        id: $(this).data('id'),
+                        pile: $(this).data('pile'),
+                        position: $(this).data('position'),
+                        valeur: valeur,
+                    },
+                    success: function (response) {
+                        aumoinsunde = true;
+                        $('#fintour').show();
+                        de.attr("disabled", "disabled").addClass('joue');
+                        if (response.etat !== 'conflit') {
+                            console.log(response.etat);
+                        } else {
+                            console.log(response.etat);
+
+                            var carteJoueur = response.idCombattantJoueur;
+                            var carteAdv = response.idCombattantAdv;
+                            var pileJoueur = response.pileDestination;
+                            var pileAdv = response.pileDestinationAdv;
+                            var taillePileJoueur = response.taillePileDestination;
+                            var taillePileAdv = response.taillePileDestinationAdv;
+                            
+                            console.log('taille pile: '+taillePileJoueur);
+                            console.log('taille pile adv: '+taillePileAdv);
+                            console.log('carte joueur: '+carteJoueur);
+                            console.log('carte adv: '+carteAdv);
+                            
+                            function resolv()
+                            {
+                                $.ajax({
+                                   url: "{{ path('resolve_conflict', {partie:partie.id}) }}",
+                                    method: 'GET',
+                                    data: {
+                                        pileJoueur: pileJoueur,
+                                        pileAdv: pileAdv,
+                                        carteJoueur: carteJoueur,
+                                        carteAdv: carteAdv,
+                                    },
+                                    success: function (response2) {
+                                        taillePileJoueur = response2.taillePileJoueur;
+                                        taillePileAdv = response2.taillePileAdv;
+                                        carteJoueur = response2.idDerniereJoueur;
+                                        carteAdv = response2.idDerniereAdv;
+                                        console.log(taillePileJoueur);
+                                        console.log(taillePileAdv);
+                                        console.log(carteJoueur);
+                                        console.log(carteAdv);
+                                        $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                                        // if (taillePileJoueur > 0 && taillePileAdv > 0)
+                                        // {
+                                        //     resolv();
+                                        // }
+                                    }
+                                });
+                            }
+                            resolv();
+                        }
+                    }
+                })
+            }
+        });
+
+        $(document).on('click', '#fintour', function () {
+            $.ajax({
+                url: "{{ path('change_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    console.log(response);
+                }
+            })
+        });
+
+        setInterval(function () {
+            $.ajax({
+                url: "{{ path('which_turn', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    console.log('tour: '+response.tour);
+                    console.log('montour: '+response.montour);
+                    if (response.tour !== tourTampon) {
+                        tourTampon = response.tour;
+                        $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                        setTimeout(function () {
+                            location.reload();
+                        }, 500);
+                    }
+                }
+            });
+        }, 500);
+
+        $(document).on('click', '.deplacement', function () {
+            $.ajax({
+                url: "{{ path('change_move', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function () {
+                    console.log('Un déplacement a eu lieu');
+                }
+            })
+        });
+
+        setInterval(function () {
+            $.ajax({
+                url: "{{ path('which_move', {partie:partie.id}) }}",
+                method: 'GET',
+                data: {},
+                success: function (response) {
+                    if (response !== moveTampon) {
+                        moveTampon = response;
+                        $('#partie').empty().load("{{ path('refresh_game', {partie:partie.id}) }}");
+                    }
+                }
+            })
+        }, 2000);
+    </script>
+{% endblock %}

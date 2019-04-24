@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/accueil.css') }}">
+{% endblock %}
+
+{% block title %}Black Blood{% endblock %}
+
+{% block body %}
+    <div class="paysage">
+        <div class="logo-button">
+            <img src="{{ asset('assets/css/images/logo.png') }}" alt="logo" id="logo">
+            <a href="{{ path('page_joueur') }}">Jouer a black Blood</a>
+        </div>
+    </div>
+    <div class="infos">
+        <div class="trait"></div>
+        <p id="histoire">Histoire du jeU</p>
+        <div class="trait"></div>
+        <div class="versus">
+            <img src="{{ asset('assets/css/images/creek-gulch.png') }}" alt="creek-gulch" id="creek">
+            <img src="{{ asset('assets/css/images/eclair.png') }}" alt="eclair" id="eclair">
+            <img src="{{ asset('assets/css/images/bush-lake.png') }}" alt="bush-lake" id="bush">
+        </div>
+        <img src="{{ asset('assets/css/images/points.png') }}" alt="points">
+        <div class="text">
+            <p>Il y a fort longtemps dans les terres les plus lointaines de l'Amérique, les villages de Bush Lake et Creek Gulch se partagaient les ressources. Leurs shérifs respectifs, malgré une mésentente entre eux, partageaient une existence sans confrontation.</p>
+            <p>Suite à la découverte de la relation amoureuse entre Alice Clyde et Little Austin, respectivement fille du shérif de Creek Gulch et fils de celui de Bush Lake, ce dernier fut poussé dans le ravin de Creek Gulch par le père d'Alice, désapprouvant cette relation. La triste nouvelle ne tarda pas à atteindre le shérif de Bush Lake.</p>
+            <p>Cet événement déclenche une guerre de cinq années provoquant des pertes importantes en hommes et en ressources dans les deux camps. En pleine trêve, le fils du shérif de Bush Lake, que tout le monde croyait décédé, lance une attaque à la bombe contre la banque de Creek Gulch relançant la guerre entre les deux shérifs rivaux, chacun voulant anéantir le village de l'autre une fois pour toute.</p>
+        </div>
+        <img src="{{ asset('assets/css/images/dynamite.png') }}" alt="dynamite" id="dynamite">
+        <div class="trait"></div>
+        <p id="regles">Regles du jeU</p>
+        <div class="trait"></div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YNFXxFoIvZs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="deroule">
+            <img src="{{ asset('assets/css/images/deroule.png') }}" alt="deroule">
+            <a id="dl-regles" href="{{ asset('assets/pdf/regles.pdf') }}" target="_blank">Télécharger les règles</a>
+            <img src="{{ asset('assets/css/images/etoile.png') }}" alt="etoile" id="etoile">
+        </div>
+    </div>
+{% endblock %}

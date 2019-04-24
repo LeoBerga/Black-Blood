@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/back.css') }}">
+{% endblock %}
+
+{% block body %}
+    <section id="content">
+        <h1>Envoyer un mail</h1>
+        {{ form(form) }}
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

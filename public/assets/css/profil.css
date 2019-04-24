@@ -1,0 +1,274 @@
+@font-face {
+	font-family: 'carnivalee';
+	src: url(../css/font/Carnevalee.ttf);
+}
+@font-face{
+    font-family: Smartphone;
+    src: url(../css/font/SmartphoneColorPro.ttf)
+  }
+
+body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header{
+    height: 0;
+}
+
+.container1{
+    width: 100%;
+    background-image: url(../css/images/back1.png);
+    background-color: #202020;
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    padding-top: 6em;
+    padding-bottom: 10em;
+
+}
+.container1 h1{
+    font-family: 'Carnevalee';
+    color: #f4d899;
+    text-align: center;
+    font-family: 'Carnivalee';
+    font-size: 2.7em;
+    padding-bottom:2em;
+
+
+}
+
+.container1 h2{
+    font-family: 'Carnevalee';
+    color: #e8ba62;
+    text-align: center;
+    font-family: 'Carnivalee';
+    font-size: 1.8em;
+    padding-bottom:2em;
+
+
+}
+
+form {
+    padding-bottom: 2em;
+
+}
+
+.form{
+    text-align: center;
+    color: #e8ba62;
+    font-family: 'Carnivalee';
+}
+.form input{
+    width: 25%;
+    height: 50px;
+    border-radius:40px;
+    border: transparent;
+    background-color: #121212;
+    font-family: 'Carnivalee';
+    text-align: center;
+    font-size: 1.5em;
+    color: #b8b8b8
+}
+.form input::placeholder {
+    text-align: center;
+}
+
+.container2b{
+    background-color:#191919; 
+    padding-top: 6em;
+}
+.container2b h1{
+    margin: 0;
+    text-align: center;
+    color:#e8ba62; 
+    font-family: 'Carnivalee';
+    font-size: 1.8em;
+
+}
+.container2{
+    padding-bottom: 7em;
+    width: 100%;
+    background-color: #191919;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.container2 .news{
+    width: 20%;
+    background-color: #202020;
+    text-align: center;
+    margin-top: 5%;
+    padding-bottom: 4em;
+    margin-right: 3em;
+
+}
+.container2 .news h3{
+    color: #e7b961;
+    font-family: 'Carnivalee';
+    padding-bottom: 2em;
+    font-size: 1.4em;
+}
+.container2 .news a{
+    color: #b8b8b8;
+    font-family: 'Carnivalee';
+    font-size: 2.3em;
+}
+.container2 .reprendre{
+    width: 20%;
+    background-color: #202020;
+    text-align: center;
+    margin-top: 5%;
+    font-family: 'Carnivalee';
+    color: white;
+    font-size: 1rem
+}
+.container2 .reprendre h3{
+    color: #e7b961;
+    font-family: 'Carnivalee';
+    font-size: 1.4em;
+
+    
+}
+.container2 .reprendre h4{
+    font-size: 20px;
+}
+.container2 .reprendre a{
+    color: #b8b8b8;
+    font-family: 'Carnivalee';
+    font-size: 2em;
+    
+}
+.container2 .relancer{
+    width: 20%;
+    background-color: #202020;
+    text-align: center;
+    margin-top: 5%;
+    font-family: 'Carnivalee';
+    color: white;
+    margin-left: 3em;
+
+    
+}
+.container2 .relancer h3{
+    color: #e7b961;
+    font-family: 'Carnivalee';
+    font-size: 1.4em;
+
+    
+}
+.container2 .relancer h4{
+    font-size: 20px;
+}
+.container2 .relancer a{
+    color: #b8b8b8;
+    font-family: 'Carnivalee';
+    font-size: 2em;
+}
+
+.container3{
+    width: 100%;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container3b h1, .container3 h1{
+    margin: 0px;
+    background-color: #202020;
+    text-align: center;
+    color: #e7b961;
+    font-family: 'Carnivalee';
+    padding-top: 3em;
+}
+.container3 .stats{
+    height: 200px;
+    width: 70%;
+    background-color: #131313;
+    margin-top: 5%;
+    margin-left: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container3 .stats {
+    font-size: 2em;
+}
+
+.container3 .emailbis{
+    height: 200px;
+    width: 70%;
+    background-color: #131313;
+    margin-top: 5%;
+    margin-left: 15%;
+}
+
+
+.container4{
+    width: 100%;
+    background-color: #202020;
+    padding-top: 3em;
+    padding-bottom: 3em;
+
+
+} 
+.container4 p{
+    text-align: center;
+    margin: 0;
+}
+button{
+    background-color: #882626;
+    border-radius: 40px;
+    border: none;
+    font-family: 'Carnivalee';
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+
+#deco {
+    padding: 10px 30px 10px 30px;
+    font-size: 1.5em;
+    color: white;
+}
+
+#deco:hover {
+    text-decoration: none;
+    color: #e7b961;
+}
+
+
+
+
+
+   /*popup*/
+   /* CSS ligthbox */
+.lightbox1 {
+    display: none;
+    background-color: #202020;
+    font-family: 'carnivalee';
+    width: 100%;
+}
+.lightbox1 h1{
+    color: #e7b961;
+}
+.lightbox1 p{
+    color: #e7b961;
+}
+.lightbox2{
+    display: none;
+    background-color: #202020;
+    font-family: 'carnivalee';
+}
+.lightbox2 h1{
+    color: #e7b961;
+}

@@ -1,0 +1,336 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #171520;
+}
+
+.message{
+    background-color: #171520;
+    width: 100%;
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.trait {
+    width: 274px;
+    height: 2px;
+    background-color: #F3D69C;
+}
+
+.message #trait1{    
+    margin-top: 10vh;
+}
+
+.message #trait2{    
+    margin-bottom: 10vh;
+}
+
+.message-inside {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 86%;
+}
+
+#revolver1, #revolver2 {
+    opacity: 0.5;
+    height: 112px;
+}
+
+#etoile {
+    width: 70px;
+}
+
+#message-text {
+    font-family: "Carnivalee Freakshow";
+    color: #F3D69C;
+    font-size: 4em;
+    padding-top: 42px;
+    padding-bottom: 50px;
+    margin: 0;
+    text-align: center;
+}
+
+.meublage1 {
+    background-color: #15110d;
+    height: 50px;
+    width: 100%;
+}
+
+
+.meublage2 {
+    background-color: #15110d;
+    height: 150px;
+    width: 100%;
+}
+
+.rondin1 {
+    position: absolute;
+    transform: translateY(-20vh);
+    width: 100%;
+}
+
+.rondin2 {
+    position: absolute;
+    transform: translateY(110vh);
+    width: 100%;
+}
+
+.jeu_plateau{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url(images/wood.jpg);
+    background-size: cover;
+    font-family: "Carnivalee Freakshow";
+    position: relative;
+}
+
+.jeu_plateau button{
+    width: 150px;
+    height: 50px;
+    border-radius: 100px;
+    font-size: 1.3em;
+    font-family: "Carnivalee Freakshow";
+}
+
+.principal{
+    width: 100vw;
+    display: flex;
+    height: 100vh;    
+    margin-top: 10vh;
+    margin-bottom: 20vh;
+}
+
+.gauche{
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gauche .logo{
+    width: 35%;
+}
+
+.gauche .ranger{
+    background-color: #57281C;
+    border: none;
+    color: #F5D4AB;
+}
+
+.gauche .camps{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gauche .camps img{
+    width: 35%;
+}
+
+.gauche .tirer{
+    background-color: #B73745;
+    border: none;
+    color: #F5D4AB;
+}
+
+.gauche .des{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gauche .des img{
+    width: 30%;
+    padding-bottom: 5%;
+}
+
+.gauche .creek_gulch{
+    padding-bottom: 5%;
+}
+
+.droite{
+    width: 85%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    padding-right: 2.5%;
+    box-sizing: border-box;
+}
+
+.droite h1{
+    text-align: center;
+    color: #F5D4AB;
+    margin: 0;
+}
+
+.droite .infos{
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.droite .infos .score{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    max-width: 300px;
+}
+
+.droite .infos .score .material-icons{
+    color: #F5D4AB;
+    align-self: center;
+}
+
+.droite .infos .score div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    height: 70%;
+    border-top: #F5D4AB solid 2px;
+    border-bottom: #F5D4AB solid 2px;
+    padding: 0 10%;
+}
+
+.droite .infos .score div h1{
+    color: #F5D4AB;
+    margin: 0;
+    align-self: center;
+}
+
+.droite .infos .player{
+    display: flex;
+    align-items: center;
+    min-width: 20%;
+}
+
+.droite .infos .player div{
+    padding: 10px;
+}
+
+.droite .infos .player div img{
+}
+
+.droite .infos .player_2{
+    justify-content: flex-end;
+}
+
+.droite .infos .player_2 div{
+    text-align: right;
+}
+
+.droite .infos .player h2, .droite .infos .player p{
+    margin: 0;
+    color: #F5D4AB;
+}
+
+.droite .jeu{
+    height: 70%;
+    /*background-color: #B73745;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 5%;
+}
+
+.droite .jeu .plateau{
+    position: relative;
+}
+
+.droite .jeu .plateau .board{
+    width: 92.2%;
+    position: relative;
+    border: white solid 3px;
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+.droite .jeu .plateau .camps{
+    width: 92.2%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1%;
+    box-sizing: border-box;
+}
+
+.droite .jeu .plateau .camps img{
+    height: 100%;
+}
+
+.droite .jeu .player{
+    height: 35%;
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: repeat(11,1fr);
+    grid-column-gap: 1%;
+    position: relative;
+}
+
+.droite .jeu .player_1 .carte{
+    bottom: 4px;
+}
+
+.droite .jeu .player .carte{
+    grid-column: 11/12;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    box-sizing: border-box;
+}
+
+.pile {
+    float: left;
+    width: 8%;
+    margin: 0.2%;
+}
+
+
+.adversaire {
+    position: relative;
+    margin-bottom: 9.2%;
+    margin-top: 5%;
+}
+.adversairepile {
+    width: 8%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+.joue {
+    opacity: 0.5;
+}
+
+.carte {
+    width: 100%;
+    margin-bottom: -112px;
+}
+
+#de1, #de2, #de3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+#de1:hover, #de2:hover, #de3:hover {
+    cursor: pointer;
+}
+

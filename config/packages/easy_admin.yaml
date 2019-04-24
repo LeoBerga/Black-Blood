@@ -1,0 +1,36 @@
+easy_admin:
+    entities:
+        Joueur:
+            class: App\Entity\Joueur
+            list:
+                fields: ['pseudo','email', 'date_inscription','derniere_connexion','nb_victoires','nb_defaites','banni','enligne','avertissements']
+                actions: [name: 'bannir', name: 'debannir', name: 'avertir']
+            disabled_actions: ['new', 'edit']
+        Partie:
+            class: App\Entity\Partie
+            list:
+                fields: ['id','statut','joueur1','joueur2','duree','fin','type_victoire','vainqueur']
+            disabled_actions: ['new', 'edit']
+        Cartes:
+            class: App\Entity\Cartes
+            list:
+                fields: ['id','nom','arme','str','camp']
+
+    list:
+        actions:
+            - { name: 'edit', label: 'Modifier' }
+            - { name: 'delete', label: 'Supprimer' }
+
+    site_name: 'Gestion Black Blood'
+
+    user:
+        name_property_path: 'pseudo'
+
+    design:
+        brand_color: '#9F2828'
+        menu:
+            - { label: 'Revenir au dashboard', route: 'app_back', icon: 'fas fa-arrow-left' }
+            - Joueur
+            - Partie
+            - Cartes
+

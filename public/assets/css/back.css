@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    width: 250px;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    height: 10vh;
+    background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
+li {
+    display: inline-block;
+    margin: 50px;
+}
+
+ul a, #content button {
+    text-decoration: none;
+    color: white;
+    transition: 0.2s;
+    background-color: grey;
+    border-radius: 5px;
+}
+
+ul a:hover, #content button:hover {
+    background-color: white;
+    color: grey;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100vh;
+    font-size: 24px;
+}
+
+#content h1, #infos {
+    margin-bottom: 75px;
+}
+
+#content a {
+    text-decoration: none;
+    color: lightgrey;
+    margin: 5px;
+}
+
+#content a:hover {
+    color: dimgray;
+}
+
+#content input[type=text], #content select, #content textarea {
+    min-width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+    border-radius: 5px;
+    border: solid 1px lightgrey;
+}
+
+#content textarea {
+    min-height: 130px;
+}
+
+#content button {
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    font-size: 24px;
+}
+
+#content label {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#content form {
+    width: 100%;
+}
+
+#infos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#infos div {
+    padding: 45px;
+}
+
+#partie {
+    border-right: solid 2px black;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+{% endblock %}
+
+{% block title %}Changer infos{% endblock %}
+
+{% block body %}
+    <section id="formulaire">
+        <div class="contenu">
+            <div id="popup2">
+                <p>Modifier mes informationS :<p>
+                    <div id="inscription">
+                        <div id="gauche">
+                            <div id="deco">
+                                <img src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt="décoration">
+                                <img src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt="décoration">
+                                <img src="{{ asset('assets/css/images/etoile_jaune.png') }}" alt="décoration">
+                            </div>
+                            {{ form_start(form) }}
+                            {{ form_widget(form.email) }}
+                            {{ form_widget(form.pseudo) }}
+                            {{ form_widget(form.password) }}
+                        </div>
+                        <div id="droite">
+                            {{ form_widget(form.captchaCode) }}
+                {{ form_widget(form.save) }}
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+        </div>
+    </section>
+{% endblock %}

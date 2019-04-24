@@ -1,0 +1,47 @@
+<div class="adversaire">
+    {% for i in 11..1 %}
+        <div class="adversairepile">
+            {% for carte in terrainAdversaire[i]|reverse  %}
+                    <img class="carte {{ tCartes[carte].arme }} {{ tCartes[carte].nom }}"
+                         data-pile="{{ i }}"
+                         data-arme="{{ tCartes[carte].arme }}"
+                         data-str="{{ tCartes[carte].str }}"
+                         data-id="{{ carte }}"
+                         data-position="{{ loop.index }}"
+                         data-nb-cartes="{{ partie.terrain2[i]|length }}"
+                         src="{{ asset('assets/css/images/cartes/'~tCartes[carte].image) }}"
+                        style="transform: rotate(180deg);position: relative;z-index: {{ 11 - loop.index }}">
+{#                    <span>{{ tCartes[carte].nom }} // {{ tCartes[carte].str }} // {{ tCartes[carte].arme }}</span>#}
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+
+<div class="plateau">
+    <img class="board" src="{{ asset('assets/css/images/plateau_web.png') }}">
+    <div class="camps">
+        <img src="{{ asset('assets/css/images/bush-lake.png') }}" alt="">
+        <img src="{{ asset('assets/css/images/creek-gulch.png') }}" alt="">
+    </div>
+</div>
+
+
+<div id="moncote">
+        {% for i in 1..11 %}
+                <div class="pile">
+                        {% for carte in terrainJoueur[i] %}
+                                <img class="carte {{ tCartes[carte].arme }} {{ tCartes[carte].nom }}" src="{{ asset('assets/css/images/cartes/'~tCartes[carte].image) }}">
+{#                                        <span>{{ tCartes[carte].nom }} // {{ tCartes[carte].str }} // {{ tCartes[carte].arme }}</span>#}
+                                        <button class="deplacement {{ tCartes[carte].arme }}"
+                                                data-pile="{{ i }}"
+                                                data-id="{{ carte }}"
+                                                data-arme="{{ tCartes[carte].arme }}"
+                                                data-str="{{ tCartes[carte].str }}"
+                                                data-position="{{ loop.index }}"
+                                                data-nb-cartes="{{ partie.terrain1[i]|length }}"
+                                                style="display:none;width: 33px;height: 33px; margin-left: 35px">></button>
+                        {% endfor %}
+                </div>
+        {% endfor %}
+</div>

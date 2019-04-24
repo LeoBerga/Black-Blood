@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/back.css') }}">
+</head>
+<body>
+
+<ul>
+    <li><a href="{{ path('app_accueil') }}">Accueil</a></li>
+
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        {% if not is_granted('ROLE_ADMIN') %}
+            <li><a href="{{ path('page_joueur') }}">Page joueur</a></li>
+        {% endif %}
+        <li><a href="{{ path('hors_ligne') }}">Déconnexion</a></li>
+    {% endif %}
+
+    {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <li><a href="{{ path('app_register') }}">Inscription</a></li>
+        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+    {% endif %}
+    <li><a href="{{ path('app_back') }}">Administration</a></li>
+</ul>
+
+<section id="content">
+    <h1>Administration Black Blood</h1>
+    <div id="infos">
+        <div id="partie">
+            <p>{{ en_attente }} parties en attente</p>
+            <p>{{ en_cours }} parties en cours</p>
+            <p>{{ terminees }} parties terminées</p>
+        </div>
+        <div id="joueur">
+            <p>{{ joueurs_inscrits }} joueurs inscrits</p>
+            <p>{{ joueur_connectes }} joueurs en ligne</p>
+            <p>{{ joueur_bloques }} joueurs bannis</p>
+        </div>
+    </div>
+    <a href="{{ path('easyadmin') }}">Voir les tables</a>
+    <a href="{{ path('mail_contact') }}">Envoyer un mail</a>
+</section>
+
+</body>
+</html>
